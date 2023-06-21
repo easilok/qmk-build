@@ -428,3 +428,13 @@ distclean: clean
 	echo -n 'Deleting *.bin, *.hex, and *.uf2 ... '
 	rm -f *.bin *.hex *.uf2
 	echo 'done.'
+
+.PHONY: easilok
+easilok:
+	echo 'Building easilok keymap'
+	$(QMK_BIN) compile -kb crkbd/r2g -km easilok
+
+.PHONY: flash-easilok
+flash-easilok:
+	echo 'Flashing easilok keymap'
+	$(QMK_BIN) flash $(BUILD_DIR)/crkbd_r2g_easilok.hex
