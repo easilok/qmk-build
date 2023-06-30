@@ -432,9 +432,9 @@ distclean: clean
 .PHONY: easilok
 easilok:
 	echo 'Building easilok keymap'
-	$(QMK_BIN) compile -kb crkbd/r2g -km easilok
+	$(QMK_BIN) compile -kb crkbd/rev1 -km easilok
 
 .PHONY: flash-easilok
 flash-easilok:
 	echo 'Flashing easilok keymap'
-	$(QMK_BIN) flash $(BUILD_DIR)/crkbd_r2g_easilok.hex
+	$(QMK_BIN) flash $(BUILD_DIR)/crkbd_rev1_easilok.hex
