@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Some special keys alias
 #define KC_EURO RALT(KC_E)
+#define KC_DISPLAY LGUI(LSFT(KC_F7))
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -52,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	[_META] = LAYOUT_split_3x6_3(
         KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-        KC_LCTL,  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, KC_NO,   KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, KC_PGUP, KC_NO,
+        KC_LCTL,  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, KC_LGUI, KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, KC_PGUP, KC_DISPLAY,
         RGB_RMOD, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, KC_NO,   KC_VOLD, KC_NO,   KC_NO,   KC_NO,   KC_PGDN, KC_ENT,
                                     KC_LGUI, KC_TRNS, KC_LSFT, KC_SPC,  KC_TRNS, KC_LALT
     )
