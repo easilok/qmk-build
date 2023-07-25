@@ -435,6 +435,6 @@ easilok:
 	$(QMK_BIN) compile -kb crkbd/rev1 -km easilok
 
 .PHONY: flash-easilok
-flash-easilok:
+flash-easilok: easilok
 	echo 'Flashing easilok keymap'
 	$(QMK_BIN) flash $(BUILD_DIR)/crkbd_rev1_easilok.hex

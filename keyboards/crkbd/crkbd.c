@@ -17,6 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "quantum.h"
+// For wpm
+#include <stdio.h>
+char wpm_str[10];
 
 #ifdef SWAP_HANDS_ENABLE
 __attribute__((weak)) const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
@@ -112,6 +115,8 @@ static void oled_render_keylog(void) {
     const char *last_keycode_str = get_u16_str(last_keycode, ' ');
     oled_write(depad_str(last_keycode_str, ' '), false);
     oled_write_P(PSTR(":"), false);
+    /* oled_write_ln("", false); */
+    /* oled_write_P(PSTR("Key: "), false); */
     oled_write_char(key_name, false);
 }
 
@@ -130,6 +135,12 @@ static void oled_render_keylog(void) {
 //     }
 // }
 
+static void oled_render_wpm(void) {
+    sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up
+    /* oled_write_ln("", false); */
+    oled_write_ln("", false);
+    oled_write_ln(wpm_str, false);                       // writes wpm
+}
 __attribute__((weak)) void oled_render_logo(void) {
     // clang-format off
     static const char PROGMEM crkbd_logo[] = {
@@ -148,6 +159,7 @@ bool oled_task_kb(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
+        oled_render_wpm();
     } else {
         oled_render_logo();
     }

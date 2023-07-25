@@ -1,8 +1,8 @@
 /*
 Copyright 2019 @foostan
 Copyright 2020 Drashna Jaelre <@drashna>
-Copyright 2021 Elliot Powell @e11i0t23
-Copyright 2023 Luís Pereira @easilok
+    Copyright 2021 Elliot Powell @e11i0t23
+    Copyright 2023 Luís Pereira @easilok
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,15 +23,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef RGBLIGHT_ENABLE
 
 #   define RGBLIGHT_EFFECT_BREATHING
-#   define RGBLIGHT_EFFECT_RAINBOW_MOOD
-#   define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#   define RGBLIGHT_EFFECT_SNAKE
-#   define RGBLIGHT_EFFECT_KNIGHT
-#   define RGBLIGHT_EFFECT_CHRISTMAS
-#   define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#   define RGBLIGHT_EFFECT_RGB_TEST
-#   define RGBLIGHT_EFFECT_ALTERNATING
-#   define RGBLIGHT_EFFECT_TWINKLE
+/* #   define RGBLIGHT_EFFECT_RAINBOW_MOOD */
+/* #   define RGBLIGHT_EFFECT_RAINBOW_SWIRL */
+/* #   define RGBLIGHT_EFFECT_SNAKE */
+/* #   define RGBLIGHT_EFFECT_KNIGHT */
+/* #   define RGBLIGHT_EFFECT_CHRISTMAS */
+/* #   define RGBLIGHT_EFFECT_STATIC_GRADIENT */
+/* #   define RGBLIGHT_EFFECT_RGB_TEST */
+/* #   define RGBLIGHT_EFFECT_ALTERNATING */
+/* #   define RGBLIGHT_EFFECT_TWINKLE */
+/* #   undef RGBLIGHT_EFFECT_RAINBOW_MOOD */
+/* #   undef RGBLIGHT_EFFECT_RAINBOW_SWIRL */
+/* #   undef RGBLIGHT_EFFECT_SNAKE */
+/* #   undef RGBLIGHT_EFFECT_KNIGHT */
+/* #   undef RGBLIGHT_EFFECT_CHRISTMAS */
+/* #   undef RGBLIGHT_EFFECT_STATIC_GRADIENT */
+/* #   undef RGBLIGHT_EFFECT_RGB_TEST */
+/* #   undef RGBLIGHT_EFFECT_ALTERNATING */
+/* #   undef RGBLIGHT_EFFECT_TWINKLE */
 
 #   define RGBLED_NUM 54
 #   define RGBLED_SPLIT \
@@ -69,3 +78,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define SPLIT_USB_DETECT
 
+// Tap-hold configuration for home row mods.
+#define TAPPING_TERM 220 // default is 200
+/* #define PERMISSIVE_HOLD */
+
+/* #define TAPPING_TERM_PER_KEY */
+#undef TAPPING_TERM_PER_KEY
+#define QUICK_TAP_TERM_PER_KEY
+/* #undef QUICK_TAP_TERM_PER_KEY */
+#ifdef QUICK_TAP_TERM_PER_KEY
+#define QUICK_TAP_TERM 100
+#else
+#define QUICK_TAP_TERM 0
+#endif
+
+// Save code
+/* #define NO_ACTION_TAPPING // disable tap dance and other tapping features */
+#define NO_ACTION_ONESHOT // disable one-shot modifiers
+
+// Disable action_get_macro and fn_actions, since we don't use these
+// and it saves on space in the firmware.
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
+
+#define NO_MUSIC_MODE
+
+#define LAYER_STATE_8BIT
+/* #define BONGOCAT_ANIMATION */
+
+#define TAPPING_TOGGLE 3
