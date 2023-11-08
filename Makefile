@@ -438,3 +438,10 @@ easilok:
 flash-easilok: easilok
 	echo 'Flashing easilok keymap'
 	$(QMK_BIN) flash $(BUILD_DIR)/crkbd_rev1_easilok.hex
+
+.PHONY: setup-build
+setup-build:
+	[ ! -d "./venv" ] && virtualvenv venv
+	source venv/bin/activate
+	pip install qmk
+	qmk setup
