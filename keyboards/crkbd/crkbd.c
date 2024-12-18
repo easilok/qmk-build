@@ -63,6 +63,10 @@ static void oled_render_layer_state(void) {
             /* oled_write_ln_P(PSTR("Adjust"), false); */
             oled_write_ln_P(PSTR("meta"), false);
             break;
+        case 4:
+            /* oled_write_ln_P(PSTR("Adjust"), false); */
+            oled_write_ln_P(PSTR("keyboard"), false);
+            break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
             break;

@@ -25,6 +25,10 @@ char wpm_str[10];
 #define KC_EURO RALT(KC_E)
 #define KC_DISPLAY LGUI(LSFT(KC_F7))
 #define KC_POWER LGUI(LSFT(KC_ESC))
+#define KC_HSPLIT LGUI(KC_F1)
+#define KC_VSPLIT LGUI(KC_F2)
+#define KC_MONOCLE LGUI(KC_F3)
+#define KC_TSPLIT LGUI(KC_F4)
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -34,7 +38,8 @@ enum {
     _BASE,
     _SYM,
     _NUM,
-    _META
+    _META,
+    _KBD
 };
 
 // This keymap uses home row mods. In addition to mods, I have home row
@@ -89,10 +94,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                          KC_LGUI,       E_LT(_SYM),  KC_ESC,     KC_SPC,        MO(_META), RTHUMB_3
     ),
 	[_META] = LAYOUT_split_3x6_3(
-        KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_F6,   KC_F7,   KC_F8,     KC_F9,   KC_F10,  KC_F11,  KC_F12,
-        KC_LCTL,  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,   KC_LGUI, KC_VOLU, KC_LGUI,   KC_MPLY, KC_NO,   KC_PGUP, KC_DISPLAY,
-        RGB_RMOD, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,   KC_NO,   KC_VOLD, KC_MPRV,   KC_MNXT, KC_POWER,KC_PGDN, KC_ENT,
-                                    KC_LGUI, KC_TRNS,   KC_LSFT, KC_SPC,  KC_TRNS,   RTHUMB_3
+        KC_F1,   KC_F2,     KC_F3,     KC_F4,      KC_F5,     KC_F6,    KC_F7,    KC_F8,     KC_F9,   KC_F10,  KC_F11,  KC_F12,
+        KC_LSFT, KC_HSPLIT, KC_VSPLIT, KC_MONOCLE, KC_TSPLIT, KC_LGUI,  KC_LGUI,  KC_VOLU,   KC_MPLY, KC_NO,   KC_PGUP, KC_DISPLAY,
+        KC_LCTL, KC_POWER,  KC_NO,     KC_NO,      KC_NO,     MO(_KBD), MO(_KBD), KC_VOLD,   KC_MPRV, KC_MNXT, KC_PGDN, KC_ENT,
+                                       KC_LGUI,    KC_TRNS,   KC_ESC,   KC_SPC,   KC_TRNS,   RTHUMB_3
+    ),
+	[_KBD] = LAYOUT_split_3x6_3(
+        KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_F6,   KC_F7,   KC_F8,   KC_F9, KC_F10, KC_F11,  KC_F12,
+        KC_LCTL,  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,   KC_LGUI, KC_LGUI, KC_NO,   KC_NO, KC_NO,  KC_NO,   KC_NO,
+        RGB_RMOD, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,   KC_TRNS, KC_TRNS, KC_NO,   KC_NO, KC_NO,  KC_NO,   KC_ENT,
+                                    KC_LGUI, KC_TRNS,   KC_LSFT, KC_SPC,  KC_TRNS, RTHUMB_3
     )
 };
 
