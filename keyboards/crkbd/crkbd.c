@@ -106,26 +106,26 @@ static void set_keylog(uint16_t keycode, keyrecord_t *record) {
     last_col = record->event.key.col;
 }
 
-static const char *depad_str(const char *depad_str, char depad_char) {
-    while (*depad_str == depad_char)
-        ++depad_str;
-    return depad_str;
-}
+// static const char *depad_str(const char *depad_str, char depad_char) {
+//     while (*depad_str == depad_char)
+//         ++depad_str;
+//     return depad_str;
+// }
 
-static void oled_render_keylog(void) {
-    const char *last_row_str = get_u8_str(last_row, ' ');
-    oled_write(depad_str(last_row_str, ' '), false);
-    oled_write_P(PSTR("x"), false);
-    const char *last_col_str = get_u8_str(last_col, ' ');
-    oled_write(depad_str(last_col_str, ' '), false);
-    oled_write_P(PSTR(", k"), false);
-    const char *last_keycode_str = get_u16_str(last_keycode, ' ');
-    oled_write(depad_str(last_keycode_str, ' '), false);
-    oled_write_P(PSTR(":"), false);
-    /* oled_write_ln("", false); */
-    /* oled_write_P(PSTR("Key: "), false); */
-    oled_write_char(key_name, false);
-}
+// static void oled_render_keylog(void) {
+//     const char *last_row_str = get_u8_str(last_row, ' ');
+//     oled_write(depad_str(last_row_str, ' '), false);
+//     oled_write_P(PSTR("x"), false);
+//     const char *last_col_str = get_u8_str(last_col, ' ');
+//     oled_write(depad_str(last_col_str, ' '), false);
+//     oled_write_P(PSTR(", k"), false);
+//     const char *last_keycode_str = get_u16_str(last_keycode, ' ');
+//     oled_write(depad_str(last_keycode_str, ' '), false);
+//     oled_write_P(PSTR(":"), false);
+//     /* oled_write_ln("", false); */
+//     /* oled_write_P(PSTR("Key: "), false); */
+//     oled_write_char(key_name, false);
+// }
 
 // static void render_bootmagic_status(bool status) {
 //     /* Show Ctrl-Gui Swap options */
@@ -165,7 +165,7 @@ bool oled_task_kb(void) {
     }
     if (is_keyboard_master()) {
         oled_render_layer_state();
-        oled_render_keylog();
+        // oled_render_keylog();
         oled_render_wpm();
     } else {
         oled_render_logo();
