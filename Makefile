@@ -439,6 +439,9 @@ flash-easilok: easilok
 	echo 'Flashing easilok keymap'
 	$(QMK_BIN) flash $(BUILD_DIR)/crkbd_rev1_easilok.hex
 
+.PHONY: easilok-upload
+easilok-upload: flash-easilok
+
 .PHONY: setup-build
 setup-build:
 	[ ! -d "./venv" ] && virtualvenv venv
